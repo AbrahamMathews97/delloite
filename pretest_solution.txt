@@ -1,0 +1,22 @@
+Pseudo code : 
+main()
+{ int vowel=0;int j=0;
+  Input String into test;   				//Taking input from User in STD:IN and placing the string into test.
+  char[] vowels=['A','E','I','O','U']			//Vowels array	
+  print("No. of vowels in the string") 
+  for(int i=0;i<test.length();i++)
+   {if(test.charAt(i)==vowels[j] || test.charAt(i)== Character.toLowerCase(vowels[j]))  	//Condition to identify a vowel   
+   {vowel++;    						// Counting no. of vowels......
+    j=(j+1)%5; 							//value of j does not exceed 5
+    }
+    }
+  print("Reverse of The String");
+  char[] reverse=new char[100]; 
+  for(int i=test.length()-1;i>=0;i--)
+  {reverse[i]=test.charAt(i);					//Reversing the string test and placing it into character array reverse
+   }
+  for(int i=0;i<reverse.length;i++)
+  {print(reverse[i]);						//Printing the reverse character array
+  }
+ 
+}
