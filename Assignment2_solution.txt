@@ -1,0 +1,66 @@
+Create a table called Employee with the following Columns  and following Constrains :-
+------------------------------------------------------------------------------------------------------------
+
+Assignment 1:
+
+EmployeeID should not be duplicate
+EmployeeName should not be null
+EmployeeAddress  :- should not be Newyork, London and Paris
+Salary : should be between 20000 and 30000
+CompanyAddress should be default as ASV Suntech Park
+___________________________________________________________________________________________________________________
+Ans)
+
+	create table employee(
+	empid integer primary key,
+	empname varchar2(20) not null, 
+	empaddress varchar2(20) constraint checkaddr check(empaddress not in('New York','London','Paris')),
+	salary integer constraint incr_salary check(salary between 20000 and 30000), 
+	cmpaddress varchar2(20) not null DEFAULT 'ASV Suntech Park');
+
+------insert two records
+________________________________________________________________________________________________________________________________________________________________________
+
+Ans)
+	insert into employee values(101,'Abraham Mathai','Delhi',25000,'London');
+	insert into employee(empid,empname,empaddress,salary) values(102,'George Mathews','Mumbai',28000);
+
+
+Salary Table
+
+EmployeeID  :- should not be duplicate
+Employee PF  :- should not be negative
+Employee HRA :- should not be negative
+
+The Salary Table must match EmployeeID.
+________________________________________________________________________________________________________________________________________________________________________
+
+Ans)
+
+	1. create table salary(empid integer unique,
+ 	emppf int constraint checknegativepf check(emppf > 0),
+ 	emphra int constraint checknegativehra check(emphra > 0)
+ 	);
+
+	2. alter table salary add constraint fkempid foreign key(empid) references employee(empid); 
+
+
+Assignment 2:
+
+Create a table with two columns and enforce the integrity.
+*Think what will be the required integrity to be enforced on CID , CitizenDOB and CitizenDOD
+
+Table :- Citizen
+
+Columns
+	CID
+	CitizenDOB
+	CitizenDOD ( Date of Death )
+
+______________________________________________________________________________________________________________________________________
+
+Ans)
+	1. create table citizen(cid int primary key, 
+ 	   citizendob date, 
+	   citizendod date,
+	   constraint checkdob check(citizendob<citizendod));
