@@ -41,20 +41,7 @@ public class Demo2 {
 				System.out.println(f.getName()+" is a directory");
 			}
 		}
-		System.out.println("Delete Files(0 for Yes, 1 for true)");
-		Scanner input=new Scanner(System.in);
-		int choice=input.nextInt();
-		input.close();
-		if(choice==0)
-		{
-			file.delete();
-			in_directory.delete();
-			directory.delete();
-		}
-		else
-		{
-			System.out.println("Directories not deleted and remains in the folder");
-		}
+		
 	}
 		
 }
